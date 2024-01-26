@@ -1,5 +1,6 @@
 import { ComponentProps } from "solid-js";
 import { useNavigate } from "@solidjs/router";
+import github from "./assets/github-mark-white.png";
 
 function App() {
 	const navigate = useNavigate();
@@ -14,10 +15,12 @@ function App() {
 	return (
 		<main class="container">
 			<form onSubmit={onSubmit}>
+				<img src={github} alt="github" />
 				<input
 					class="username-input"
 					type="text"
 					id="username"
+					placeholder="View your profile"
 					name="username"
 				/>
 			</form>

@@ -4,6 +4,8 @@
 	--primary: #333;
 	--text-primary: #fff;
 	--text-secondary: #ccc;
+	--font-primary: "Inter";
+	--font-secondary: "Fira Code";
 }
 
 html {
@@ -19,7 +21,7 @@ html {
 }
 
 body {
-	font-family: "Inter";
+	font-family: var(--font-primary);
 	line-height: 1.5;
 	color: var(--text-primary);
 	background-color: var(--background);
@@ -29,14 +31,32 @@ body {
 	display: grid;
 	place-items: center;
 	height: 100vh;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+
+		img {
+			width: 7rem;
+		}
+
+		label {
+			color: var(--text);
+			font-size: 2rem;
+			font-weight: bolder;
+			letter-spacing: 2px;
+		}
+	}
 }
 
 .username-input {
+	margin: 1rem;
 	padding: 1rem;
 	border: none;
 	text-align: center;
 	font-size: 2rem;
-	letter-spacing: 2px;
 	border-radius: 5px;
 	color: var(--accent);
 	background-color: var(--primary);
@@ -44,6 +64,7 @@ body {
 	width: 90vw;
 	max-width: 500px;
 	height: 70px;
+	box-shadow: 0.5px 0.5px 10px 3px var(--accent);
 
 	&:focus {
 		outline: none;
@@ -52,8 +73,10 @@ body {
 
 .hero {
 	display: flex;
+	font-family: var(--font-secondary);
 	flex-direction: column;
 	align-items: center;
+	gap: 0.5rem;
 	justify-content: center;
 
 	.hero-image {
