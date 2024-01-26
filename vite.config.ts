@@ -1,6 +1,10 @@
-import { defineConfig } from 'vite'
-import solid from 'vite-plugin-solid'
+import { defineConfig } from "vite";
+import solid from "vite-plugin-solid";
+import svg from "vite-plugin-solid-svg";
 
 export default defineConfig({
-  plugins: [solid()],
-})
+	plugins: [solid(), svg()],
+	server: {
+		port: 3000,
+	},
+});

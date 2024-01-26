@@ -1,0 +1,112 @@
+:root {
+	--accent: aqua;
+	--background: #1f1f1f;
+	--primary: #333;
+	--text-primary: #fff;
+	--text-secondary: #ccc;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Inter";
+	line-height: 1.5;
+	color: var(--text-primary);
+	background-color: var(--background);
+}
+
+.container {
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+
+.username-input {
+	padding: 1rem;
+	border: none;
+	text-align: center;
+	font-size: 2rem;
+	letter-spacing: 2px;
+	border-radius: 5px;
+	color: var(--accent);
+	background-color: var(--primary);
+	font-weight: bold;
+	width: 90vw;
+	max-width: 500px;
+	height: 70px;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.hero-image {
+		border-radius: 50%;
+		border: 5px solid var(--accent);
+		width: 15rem;
+	}
+	h1 {
+		font-size: 3rem;
+		margin: 0;
+	}
+	a {
+		color: var(--accent);
+		font-size: 1.2rem;
+		letter-spacing: 1px;
+	}
+}
+
+.details {
+	margin: 2rem;
+	display: flex;
+	gap: 1rem;
+	max-width: 70vw;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.stats {
+	display: flex;
+	gap: 0.5rem;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		border-radius: 5px;
+		letter-spacing: 1px;
+		background-color: var(--primary);
+		font-size: 0.8rem;
+		max-width: 8rem;
+		span {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+	}
+}
