@@ -15,7 +15,7 @@ function Home() {
 
 	return (
 		<main class="container">
-			<form onSubmit={onSubmit}>
+			<form onSubmit={onSubmit} class="form">
 				<img src={github} alt="github" />
 				<input
 					class="username-input"

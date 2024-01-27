@@ -1,0 +1,84 @@
+.repositories {
+	margin-top: 2rem;
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-columns: 1fr;
+	gap: 1rem;
+
+	max-width: 80vw;
+}
+
+.repository-card {
+	display: flex;
+	text-decoration: none;
+	width: 100%;
+	flex-direction: column;
+	background-color: whitesmoke;
+	color: var(--primary);
+	box-shadow: 0px 10px 30px rgba(199, 199, 199, 0.2);
+	padding: 1rem;
+	gap: 1rem;
+}
+
+.repository-card-header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.repository-title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	h4 {
+		font-size: var(--small);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 100%;
+	}
+}
+
+.repository-description {
+	font-size: var(--small);
+}
+
+.flex-row {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.repository-card-footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 0.5rem;
+}
+
+.repo-stats {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 1rem;
+	span {
+		margin-left: auto;
+	}
+}
+
+.language-color {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+	.repositories {
+		grid-template-columns: 1fr 1fr;
+	}
+	.repositories li:first-child {
+		grid-column: 1/3;
+	}
+}

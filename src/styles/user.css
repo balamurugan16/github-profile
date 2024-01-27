@@ -1,0 +1,6 @@
+.container {
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	gap: 1rem;
+}

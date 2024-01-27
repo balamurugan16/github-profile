@@ -1,6 +1,7 @@
 import { For } from "solid-js";
 import { Repo } from "../lib/types";
 import Repository from "./Repository";
+import "../styles/repositories.css";
 
 export default function Repositories(props: { repos: Repo[] }) {
 	return (

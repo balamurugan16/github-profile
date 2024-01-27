@@ -1,19 +1,29 @@
-import { Match, Switch, createResource, onMount } from "solid-js";
+import {
+	Match,
+	Switch,
+	createEffect,
+	createResource,
+	createSignal,
+} from "solid-js";
 import Hero from "../components/Hero";
 import { useSearchParams } from "@solidjs/router";
 import { getUserData } from "../lib/services";
 import Repositories from "../components/Repositories";
+import "../styles/user.css";
+import Header from "../components/Header";
 
 export default function User() {
 	const [searchParams] = useSearchParams<{ id: string }>();
-	const [user] = createResource(searchParams.id, getUserData);
+	const [username, setUsername] = createSignal(searchParams.id);
+	const [user] = createResource(username, getUserData);
 
-	onMount(() => {
-		document.title = `Github Profile | ${searchParams.id}`;
+	createEffect(() => {
+		document.title = `Github Profile | ${username()}`;
 	});
 
 	return (
 		<main class="container">
+			<Header setUsername={setUsername} />
 			<Switch fallback={<Hero user={user()!.user} />}>
 				<Match when={user.state === "errored"}>Oh no</Match>
 				<Match when={user.state === "pending"}>loading</Match>
