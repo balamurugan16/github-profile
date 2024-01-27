@@ -1,4 +1,4 @@
-import { Match, Switch, createResource } from "solid-js";
+import { Match, Switch, createResource, onMount } from "solid-js";
 import Hero from "../components/Hero";
 import { useSearchParams } from "@solidjs/router";
 import { getUserData } from "../lib/services";
@@ -7,6 +7,10 @@ import Repositories from "../components/Repositories";
 export default function User() {
 	const [searchParams] = useSearchParams<{ id: string }>();
 	const [user] = createResource(searchParams.id, getUserData);
+
+	onMount(() => {
+		document.title = `Github Profile | ${searchParams.id}`;
+	});
 
 	return (
 		<main class="container">

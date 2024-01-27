@@ -1,6 +1,7 @@
 import { ComponentProps } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import github from "../assets/github-mark-white.png";
+import "../styles/home.css";
 
 function Home() {
 	const navigate = useNavigate();
@@ -24,6 +25,16 @@ function Home() {
 					name="username"
 				/>
 			</form>
+			<footer>
+				Created with{" "}
+				<a href="https://www.solidjs.com/" target="_blank">
+					SolidJS
+				</a>{" "}
+				and{" "}
+				<a href="https://github.com/octokit/octokit.js" target="_blank">
+					Octokit
+				</a>
+			</footer>
 		</main>
 	);
 }

@@ -1,11 +1,13 @@
 :root {
-	--accent: aqua;
+	--accent: rgb(0, 255, 255);
 	--background: #1f1f1f;
 	--primary: #333;
 	--secondary: #ccc;
 	--text-primary: #fff;
 	--font-primary: "Inter";
 	--font-secondary: "Fira Code";
+	--shadow-light: rgba(0, 255, 255, 0.25);
+	--shadow-dark: rgba(0, 255, 255, 0.5);
 }
 
 html {
@@ -21,53 +23,10 @@ html {
 }
 
 body {
-	font-family: var(--font-primary);
+	font-family: var(--font-secondary);
 	line-height: 1.5;
 	color: var(--text-primary);
 	background-color: var(--background);
-}
-
-.container {
-	display: grid;
-	place-items: center;
-
-	form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-
-		img {
-			width: 7rem;
-		}
-
-		label {
-			color: var(--text);
-			font-size: 2rem;
-			font-weight: bolder;
-			letter-spacing: 2px;
-		}
-	}
-}
-
-.username-input {
-	margin: 1rem;
-	padding: 1rem;
-	border: none;
-	text-align: center;
-	font-size: 2rem;
-	border-radius: 5px;
-	color: var(--accent);
-	background-color: var(--primary);
-	font-weight: bold;
-	width: 90vw;
-	max-width: 500px;
-	height: 70px;
-	box-shadow: 0.5px 0.5px 10px 3px var(--accent);
-
-	&:focus {
-		outline: none;
-	}
 }
 
 .hero {
