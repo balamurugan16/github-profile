@@ -1,4 +1,4 @@
-import { User } from "../services";
+import { User } from "../lib/types";
 import Calendar from "../assets/calendar.svg?component-solid";
 import Location from "../assets/location.svg?component-solid";
 import Work from "../assets/work.svg?component-solid";
@@ -7,14 +7,10 @@ import { Show } from "solid-js";
 export default function Hero(props: { user: User }) {
 	return (
 		<section class="hero">
-			<img
-				class="hero-image"
-				src={props.user.image}
-				alt={props.user.username}
-			/>
-			<h1>{props.user.username}</h1>
-			<a target="_blank" href={`https://github.com/${props.user.githubHandle}`}>
-				@{props.user.githubHandle}
+			<img class="hero-image" src={props.user.image} alt={props.user.name} />
+			<h1>{props.user.name}</h1>
+			<a target="_blank" href={props.user.url}>
+				@{props.user.login}
 			</a>
 			<div class="details">
 				<Show when={!!props.user.work}>
@@ -36,7 +32,7 @@ export default function Hero(props: { user: User }) {
 			</div>
 			<div class="stats">
 				<div>
-					<span>{props.user.repos}</span>
+					<span>{props.user.repoCount}</span>
 					<label>REPOSITORIES</label>
 				</div>
 				<div>

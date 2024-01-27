@@ -1,8 +1,8 @@
 import { ComponentProps } from "solid-js";
 import { useNavigate } from "@solidjs/router";
-import github from "./assets/github-mark-white.png";
+import github from "../assets/github-mark-white.png";
 
-function App() {
+function Home() {
 	const navigate = useNavigate();
 
 	const onSubmit: ComponentProps<"form">["onSubmit"] = (e) => {
@@ -28,4 +28,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Home;
