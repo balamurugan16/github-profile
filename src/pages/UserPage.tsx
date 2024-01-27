@@ -1,16 +1,19 @@
+import { useSearchParams } from "@solidjs/router";
 import {
-	Match,
-	Switch,
+	ErrorBoundary,
+	Show,
+	Suspense,
 	createEffect,
 	createResource,
 	createSignal,
 } from "solid-js";
-import Hero from "../components/Hero";
-import { useSearchParams } from "@solidjs/router";
-import { getUserData } from "../lib/services";
-import Repositories from "../components/Repositories";
-import "../styles/user.css";
 import Header from "../components/Header";
+import Hero from "../components/Hero";
+import Repositories from "../components/Repositories";
+import { getUserData } from "../lib/services";
+import "../styles/user.css";
+import NotFound from "../components/NotFound";
+import Loading from "../components/Loading";
 
 export default function User() {
 	const [searchParams] = useSearchParams<{ id: string }>();
@@ -23,15 +26,19 @@ export default function User() {
 
 	return (
 		<main class="container">
-			<Header setUsername={setUsername} />
-			<Switch fallback={<Hero user={user()!.user} />}>
-				<Match when={user.state === "errored"}>Oh no</Match>
-				<Match when={user.state === "pending"}>loading</Match>
-			</Switch>
-			<Switch fallback={<Repositories repos={user()!.repos} />}>
-				<Match when={user.state === "errored"}>Oh no</Match>
-				<Match when={user.state === "pending"}>loading</Match>
-			</Switch>
+			<Suspense fallback={<Loading />}>
+				<ErrorBoundary fallback={<NotFound username={username()!} />}>
+					<Show when={user()}>
+						{(user) => (
+							<>
+								<Header setUsername={setUsername} />
+								<Hero user={user().user} />
+								<Repositories repos={user().repos} />
+							</>
+						)}
+					</Show>
+				</ErrorBoundary>
+			</Suspense>
 		</main>
 	);
 }

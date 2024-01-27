@@ -1,5 +1,5 @@
 import { ComponentProps, Setter } from "solid-js";
-import { useSearchParams } from "@solidjs/router";
+import { A, useSearchParams } from "@solidjs/router";
 import github from "../assets/github-mark-white.png";
 import "../styles/header.css";
 
@@ -19,7 +19,9 @@ export default function Header(props: {
 
 	return (
 		<header>
-			<img src={github} alt="github" />
+			<A href="/">
+				<img src={github} alt="github logo" />
+			</A>
 			<form onSubmit={onSubmit}>
 				<input
 					type="text"
