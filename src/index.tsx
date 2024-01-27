@@ -8,6 +8,15 @@ import User from "./pages/UserPage";
 
 const root = document.getElementById("root");
 
+const setFavicon = () => {
+	const favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
+	favicon.href = window.matchMedia("(prefers-color-scheme: dark)").matches
+		? "github-mark-white.png"
+		: "github-mark.png";
+};
+
+setFavicon();
+
 render(
 	() => (
 		<Router>
